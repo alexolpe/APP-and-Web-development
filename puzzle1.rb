@@ -14,7 +14,8 @@ class Rfid
 		mensajeimpreso=""
 		fila=0
 		
-		#FUNCIONALITAT STRING MULTILINEA:recorre l'array i si es detecta un '*', es mostra a la primera fila el missatge previ i es salta de fila
+		# FUNCIONALITAT STRING MULTILINEA:recorre l'array i si es detecta un '*', 
+		# es mostra a la primera fila el missatge previ i es salta de fila
 		arraymensaje.each do |letra|
 			if letra =="*"
 				display.text(mensajeimpreso,fila)
@@ -35,3 +36,5 @@ if __FILE__ == $0
 	rf=Rfid.new
 	rf.escriure
 end
+
+
