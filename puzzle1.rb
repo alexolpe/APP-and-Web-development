@@ -32,5 +32,5 @@ end #corresponent a class Rfid
 
 if __FILE__ == $0
 	rf=Rfid.new
-	escriptura=rf.escriure
+	rf.escriure
 end
