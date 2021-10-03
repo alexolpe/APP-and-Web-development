@@ -11,10 +11,11 @@ class Rfid
 		arraymensaje = mensaje.chars #transforma el string en array
 		arraymensaje.pop #elimina el caracter del return
 
-		#FUNCIONALITAT STRING MULTILINEA (separador: *)
 		mensajeimpreso=""
 		fila=0
-		arraymensaje.each do |letra| #recorre l'array
+		
+		#FUNCIONALITAT STRING MULTILINEA:recorre l'array i si es detecta un '*', es mostra a la primera fila el missatge previ i es salta de fila
+		arraymensaje.each do |letra|
 			if letra =="*"
 				display.text(mensajeimpreso,fila)
 				fila=fila +1
@@ -22,13 +23,13 @@ class Rfid
 			else
 				mensajeimpreso<<letra
 				display.text(mensajeimpreso,fila)
-			end #corresponent al if else
+			end
 	
-		end #corresponent al each do
+		end 
 
-	end #corresponent a def escriure
+	end
 	
-end #corresponent a class Rfid
+end
 
 if __FILE__ == $0
 	rf=Rfid.new
