@@ -18,5 +18,3 @@ if __FILE__ == $0
 	rf=Rfid.new
 	rf.escriure
 end
-
-
