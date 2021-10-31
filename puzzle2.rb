@@ -9,9 +9,16 @@ class GtkLcd
   end
   
   def montarVentana
+  
+    #Accés al fitxer diseño.css pel disseny CSS dels widgets de la finestra
+    css_provider = Gtk::CssProvider.new
+    style_provider = Gtk::StyleProvider::PRIORITY_USER
+    css_provider.load_from_path("diseño.css")
+    
     #Disseny de la finestra
     @window.set_size_request(400, 100)
     @window.set_border_width(10)
+    @window.style_context.add_provider(css_provider, style_provider)#S'aplica el disseny CSS a la finestra
     
     #Els widgets s'organitzaran a través d'un Grid
     caja = Gtk::Grid.new
@@ -23,34 +30,19 @@ class GtkLcd
     display.set_editable(true)
     display.set_cursor_visible(true)
     display.show
+    display.style_context.add_provider(css_provider, style_provider)#S'aplica el disseny CSS al TextView
     caja.attach(display, 0,0,1,3) #S'afageix el widget al Grid
+
+    #Creació d'un label per separar TextView i botó
+    espacio = Gtk::AccelLabel.new(" ")
+    caja.attach(espacio,0,4,1,1)#S'afageix el widget al Grid
 
     #Creació del botó
     button = Gtk::Button.new(:label => "Display")
-    button.set_size_request(380, 32)
     button.signal_connect "clicked" do |_widget|
       @rf.escriure(self.coger_mensaje(display.buffer)) #Al clicar el botó s'accedeix al buffer del TextView, s'agafa el text i es mostra al display LCD
-    end    
-    
-    #Disseny en CSS del botó
-    css_provider = Gtk::CssProvider.new
-    style_provider = Gtk::StyleProvider::PRIORITY_USER
-
-    css_provider.load(data: "button {  background-image: -gtk-gradient (radial,
-                                   center center, 0,
-                                   center center, 1,
-                                   from(yellow), to(red));}\
-                            button:hover {background-image: -gtk-gradient (radial,
-                                   center center, 0,
-                                   center center, 1,
-                                   from(yellow), to(cyan));}\
-                            button:active {background-image: -gtk-gradient (radial,
-                                   center center, 0,
-                                   center center, 1,
-                                   from(yellow), to(green));}") 
-                                                         
-    button.style_context.add_provider(css_provider, style_provider)
-    
+    end                                                             
+    button.style_context.add_provider(css_provider, style_provider)#S'aplica el disseny CSS al botó    
     caja.attach(button, 0, 5,1,1) #S'afageix el widget al Grid
 
     @window.add(caja) #S'afageix el Grid a la finestra
