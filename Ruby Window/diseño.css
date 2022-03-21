@@ -1,0 +1,23 @@
+/*Estil del botó*/
+button {background-image: -gtk-gradient (radial,
+                               center center, 0,
+                               center center, 1,
+                               from(yellow), to(red));}
+button:hover {background-image: -gtk-gradient (radial,
+                                   center center, 0,
+                                   center center, 1,
+                                   from(yellow), to(cyan));}
+button:active {background-image: -gtk-gradient (radial,
+                                   center center, 0,
+                                   center center, 1,
+                                   from(yellow), to(green));}
+
+/*Estil del TextView*/
+textview text{background-color: #CFF1F0;}
+
+textview{font-family: monospace;
+		font-size: 20px;}
+
+/*Estil del fons de la finestra*/
+window {background-color: #13357B;}
+
