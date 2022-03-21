@@ -4,4 +4,4 @@ In the folder Android App you will find the code of the App. We have used Java a
 
 The folder Ruby Window contains the code to use the App as a window in any computer.
 
-Finally, he folder Server contains the code to programme the server with PHP. It has been done using a database with MySQL. It works with the Android App and the Ruby Window
+Finally, the folder Server contains the code to programme the server with PHP. It has been done using a database with MySQL. It works with the Android App and the Ruby Window
